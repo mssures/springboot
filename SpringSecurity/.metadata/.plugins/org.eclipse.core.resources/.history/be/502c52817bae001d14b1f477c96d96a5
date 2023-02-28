@@ -1,0 +1,11 @@
+package com.security.auth;
+
+import org.springframework.security.access.expression.SecurityExpressionHandler;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
+import org.springframework.security.web.FilterInvocation;
+
+public class MyAppSecurityConfig extends WebSecurityConfiguration{
+
+	
+	
+}

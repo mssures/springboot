@@ -1,0 +1,27 @@
+package com.security.auth;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+public class MyAppSecurityConfig extends  WebSecurityConfigurerAdapter{
+
+	@Autowired
+	DataSource datasource;
+	
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	
+		
+		auth.jdbcAuthentication()
+		    .dataSource(datasource)
+		    .withDefaultSchema()
+		    .withUser("suresh")
+		    .password("suresh")
+	}
+
+	
+	
+}

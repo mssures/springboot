@@ -1,0 +1,14 @@
+package com.swagger;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+public class MovieController {
+
+	@GetMapping
+	public List<Movie> getMovies()
+	{
+		return Movie;
+	}
+}

@@ -1,0 +1,15 @@
+package com.security.auth;
+
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+public class MyAppSecurityConfig extends  WebSecurityConfigurerAdapter{
+
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		
+	}
+
+	
+	
+}

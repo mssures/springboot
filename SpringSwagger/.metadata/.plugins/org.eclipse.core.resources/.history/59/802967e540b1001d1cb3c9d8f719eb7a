@@ -1,0 +1,17 @@
+package com.swagger;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+public class MovieController {
+
+	private static List<Movie> Movie= new ArrayList<Movie>();
+	
+	@GetMapping
+	public List<Movie> getMovies()
+	{
+		return Movie;
+	}
+}
