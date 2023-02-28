@@ -1,0 +1,5 @@
+package com.thymeleaf.crud;
+
+public class ApplicationProperties {
+
+}
