@@ -1,0 +1,5 @@
+package com.configlimitsservice;
+
+public class LimitsConfigurationController {
+
+}

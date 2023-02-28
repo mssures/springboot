@@ -1,0 +1,5 @@
+package com.configlimitsservice.Bean;
+
+public class LimitConfiguration {
+
+}

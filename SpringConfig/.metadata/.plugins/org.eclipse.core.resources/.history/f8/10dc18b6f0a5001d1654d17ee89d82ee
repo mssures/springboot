@@ -1,0 +1,13 @@
+package com.configlimitsservice.Bean;
+
+public class LimitConfiguration {
+
+	private int maximum;
+	private int minimum;
+	
+	protected LimitConfiguration() {
+
+	}
+	
+	
+}
