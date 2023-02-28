@@ -1,0 +1,9 @@
+INDEX VERSION 1.131+D:\MicroService-Class\Examples\SpringException\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+1004396295.index
+3997783971.index
+2271736515.index
+4086154983.index
+3314931730.index
+2110923553.index
+2223699569.index

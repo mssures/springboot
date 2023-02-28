@@ -1,0 +1,14 @@
+package com.exception.example.model;
+
+public class Account {
+
+	private String accountId;	
+	private String name;
+	public Account(String accountId, String name) {
+		super();
+		this.accountId = accountId;
+		this.name = name;
+	}
+	
+	
+}

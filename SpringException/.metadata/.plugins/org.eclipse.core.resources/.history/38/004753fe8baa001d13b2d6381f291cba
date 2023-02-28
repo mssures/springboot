@@ -1,0 +1,5 @@
+package com.exception.example3;
+
+public class ErrorDetails {
+
+}

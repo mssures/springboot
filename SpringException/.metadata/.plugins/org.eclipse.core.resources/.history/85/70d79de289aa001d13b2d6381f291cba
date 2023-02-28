@@ -1,0 +1,26 @@
+package com.exception.example3;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+public class HelloController {
+
+	
+
+	@GetMapping("/api/accounts/{accountId}")
+	public ResponseEntity<Account> getAccounts(@PathVariable("accountId") String accountId) throws ResourceNotFoundException	
+	{
+		Account account = new Account();
+		account.setAccountId(accountId);
+		account.setName("Account Exception");
+		
+		if(accountId.equals("1"))
+		{
+			throw  new ResourceNotFoundException("Not Found ---");
+		}
+		
+		return new ResponseEntity<Account> (account,HttpStatus.OK);
+	}
+}

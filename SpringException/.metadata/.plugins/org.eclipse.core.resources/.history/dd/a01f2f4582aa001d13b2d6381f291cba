@@ -1,0 +1,23 @@
+package com.exception.example3;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+public class HelloController {
+
+	
+
+	@GetMapping("/api/accounts/{accountId}")
+	public ResponseEntity<Account> getAccounts(@PathVariable("accountId") String accountId)	
+	{
+		Account account = new Account();
+		account.setAccountId(accountId);
+		account.setName("Account Exception");
+		
+		if(accountId.equals("1"))
+		{
+			return  ResponseEntity<Object>("illegal arg exception in global",HttpStatus.BAD_REQUEST);
+		}
+	}
+}

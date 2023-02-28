@@ -1,0 +1,8 @@
+package com.exception.example.model;
+
+public class Account {
+
+	private String accountId;
+	
+	
+}

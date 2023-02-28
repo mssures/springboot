@@ -1,0 +1,10 @@
+package com.exception.example3;
+
+public class ErrorDetails {
+
+	private Date timestamp;
+	private String message;
+	private String details;
+	
+	
+}

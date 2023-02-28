@@ -1,0 +1,20 @@
+package com.exception.example2;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloControlloer {
+
+	@RequestMapping("/api/accounts/{accountId}")
+	public ResponseEntity<Account> getAccount(@PathVariable("accountId") String accountId)
+	{
+		Account account = new Account();
+		account.setAccountId(accountId);
+		account.setName("Account Exception");
+		
+		
+	}
+}
