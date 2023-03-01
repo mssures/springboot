@@ -1,0 +1,35 @@
+1.cd kafka_singlenode/
+  docker-compose up -d
+
+2.docker exec -it kafkasinglenode_kafka_1 bash
+   ls
+   kafka-topics.sh --bootstrap-server localhost:9092 --create --replication-factor 1 --partitions 2 --topic first_topic
+   kafka-topics.sh --bootstrap-server localhost:9092 --list
+   kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first_topic
+
+
+3. # duplicate putty
+      docker cp ConsumerDemo-0.0.1-SNAPSHOT-jar-with-dependencies.jar kafkasinglenode_kafka_1:/consumer.jar
+      docker cp KafkaProducerDemo-0.0.1-SNAPSHOT-jar-with-dependencies.jar kafkasinglenode_kafka_1:/producer.jar
+      docker exec -it kafkasinglenode_kafka_1 bash
+      java -jar producer.jar
+      java -jar producer.jar
+      java -jar producer.jar
+     # node the consumer consumer would have received 2 messages everytime producer.jar is executed
+
+
+4. # duplicate putty
+   docker exec -it kafkasinglenode_kafka_1 bash
+    java -jar consumer.jar
+    # run the producer.jar a few times on the other terminal
+    java -jar producer.jar
+    java -jar producer.jar
+    # consumer jar will receive & print the messages
+
+5. # duplicate putty, start the consumer.jar one more time
+   docker exec -it kafkasinglenode_kafka_1 bash
+   java -jar consumer.jar
+   # the 2 consumer jars will now consume as a group
+   # run the producer.jar a few times on the other terminal
+   java -jar producer.jar
+   java -jar producer.jar
