@@ -1,0 +1,63 @@
+1. Start the config Server
+
+2. Starting Rabbitmq: 
+docker run -d -p 5672:5672 -p 15672:15672 --hostname my-rabbit --name some-rabbit rabbitmq:3-management
+
+browser: IP:15672
+172.18.32.152:15672
+username: guest
+Password: guest
+3. Start the Zipkin
+https://search.maven.org/remote_content?g=io.zipkin&a=zipkin-server&v=LATEST&c=exec
+cmd
+set RABBIT_URI=amqp://172.18.32.152
+java -jar zipkin-server-2.23.2-exec.jar
+
+4. Start Eureka:
+cd AllNetflixComponents/eurekanamingserver
+mvn package
+cd target 
+java -jar eurekanamingserver-0.0.1-SNAPSHOT.jar
+Browser: http://localhost:8761/
+
+
+cmd
+cd AllNetflixComponents\zuulgatewayserver
+mvn package
+cd target
+set RABBIT_URI=amqp://172.18.32.152
+java -jar zuulgatewayserver-0.0.1-SNAPSHOT.jar
+
+cmd
+cd AllNetflixComponents/currency-exchange-service
+mvn package
+cd target
+set RABBIT_URI=amqp://172.18.32.152
+java -jar currency-exchange-service-0.0.1-SNAPSHOT.jar
+
+cmd
+cd AllNetflixComponents/currency-exchange-service/target
+set RABBIT_URI=amqp://172.18.32.152
+java -jar -Dserver.port=8001 currency-exchange-service-0.0.1-SNAPSHOT.jar
+
+cmd
+cd AllNetflixComponents/currency-exchange-service/target
+set RABBIT_URI=amqp://172.18.32.152
+java -jar -Dserver.port=8002 currency-exchange-service-0.0.1-SNAPSHOT.jar
+
+cmd
+cd AllNetflixComponents/currency-conversion-service
+mvn package
+cd target
+set RABBIT_URI=amqp://172.18.32.152
+java -jar currency-conversion-service-0.0.1-SNAPSHOT.jar
+
+http://localhost:8100/currency-converter-feign/from/USD/to/INR/quantity/500
+http://localhost:8100/currency-converter-feign/from/USD/to/INR/quantity/1500
+
+cmd
+cd AllNetflixComponents/currency-exchange-service/target
+set RABBIT_URI=amqp://172.18.32.152
+java -jar -Dserver.port=8003 currency-exchange-service-0.0.1-SNAPSHOT.jar
+
+http://localhost:8100/currency-converter-feign/from/USD/to/INR/quantity/500
